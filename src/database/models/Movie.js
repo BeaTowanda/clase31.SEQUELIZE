@@ -34,8 +34,8 @@ module.exports =(sequelize,DataTypes) =>{
         allowNull: false
 },
     release_date :{
-    type : DataTypes.timestamps,
-    allowNull: false
+        type : DataTypes.timestamps,
+         allowNull: false
 },
     length :{
         type : DataTypes.INTEGER(3),

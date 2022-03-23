@@ -4,10 +4,17 @@ let db = require ("../databse/models");
 let moviesController = {
     list : function(req,res) {
         /*let pelis = Movies.findAll(movies)*/
-        let movies = db.Movie.findAll()
-            .then (function(pelis){
-                res.render("moviesList",{movies: pelis})
+         db.Movie.findAll()
+            .then (function(movies){
+                res.render("moviesList",{movies: movies})
             })
-        }
+        },
+    detail: function(req,res){
+         db.Movie.findByPK(req.params.id)
+        .then (function (movie){
+            /*falta agregar el where*/
+            res.render ("moviesDetail",{movie:movie})
+        })
+    }
     };
 module.exports= moviesController;
